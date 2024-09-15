@@ -8,7 +8,7 @@ if supabase is None:
     st.stop()
 
 user = supabase.auth.get_user()
-user_name = user.user
+user_name = user.user.email
 
 st.write(f"Hey {user_name}, welcome to your streamlit app!")
 
