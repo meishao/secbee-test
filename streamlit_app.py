@@ -9,6 +9,7 @@ def logout():
 
 
 def dashboard():
+    st.title("Home")
     admin_page = st.Page("app_pages/admin.py", title="用户信息", icon=":material/dashboard:", default=True)
     logout_page = st.Page(logout, title="退出登录", icon=":material/logout:")
     pg = st.navigation(
@@ -18,8 +19,8 @@ def dashboard():
     )
     pg.run()
 
+    st.write(f"Hey {user_name}, welcome to your streamlit app!")
 
-st.title("Home")
 
 supabase = auth()
 if supabase is None:
@@ -27,6 +28,4 @@ if supabase is None:
 
 user = supabase.auth.get_user()
 user_name = user.user.email
-
-st.write(f"Hey {user_name}, welcome to your streamlit app!")
 dashboard()
