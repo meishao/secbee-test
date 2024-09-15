@@ -2,9 +2,10 @@ import streamlit as st
 from auth import auth
 
 def logout():
-    supabase.auth.sign_out()
-    st.success("Signed out successfully")
-    st.rerun()
+    if st.button("退出"):
+        supabase.auth.sign_out()
+        st.success("Signed out successfully")
+        st.rerun()
 
 def dashboard():
     logout_page = st.Page(logout, title="退出登录", icon=":material/logout:")
