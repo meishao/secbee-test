@@ -3,7 +3,7 @@ from auth import auth
 
 supabase = auth()
 if supabase is None:
-    st.warning("NO!")
+    st.write("NO!")
     st.stop()
 
 st.write("GOOD!")
