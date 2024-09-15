@@ -7,11 +7,13 @@ def logout():
         st.success("Signed out successfully")
         st.rerun()
 
+
 def dashboard():
+    admin_page = st.Page("app_pages/admin.py", title="用户信息", icon=":material/dashboard:", default=True)
     logout_page = st.Page(logout, title="退出登录", icon=":material/logout:")
     pg = st.navigation(
         {
-            "账号": [logout_page],
+            "账号管理": [admin_page, logout_page],
         }
     )
     pg.run()
