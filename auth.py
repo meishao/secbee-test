@@ -5,8 +5,8 @@ from supabase import create_client, Client
 
 
 def init_connection():
-    url = st.secrets["SUPABASE_URL"]
-    key = st.secrets["SUPABASE_KEY"]
+    url = st.secrets.connections.supabase["SUPABASE_URL"]
+    key = st.secrets.connections.supabase["SUPABASE_KEY"]
     return create_client(url, key)
 
 AUTH_OPERATIONS = {
